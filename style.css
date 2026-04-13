@@ -1,0 +1,481 @@
+/* ============================================
+   Narayani Traders — Custom styles
+   Green agriculture theme, farmer-friendly
+   ============================================ */
+
+:root {
+  --nt-green-dark: #1b4332;
+  --nt-green: #2d6a4f;
+  --nt-green-light: #40916c;
+  --nt-green-soft: #95d5b2;
+  --nt-cream: #f8f9f3;
+  --nt-earth: #6c584c;
+  --nt-gold: #d4a373;
+  --nt-white: #ffffff;
+  --nt-shadow: rgba(27, 67, 50, 0.12);
+  --font-heading: "Merriweather", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #2c3e2d;
+  background-color: var(--nt-cream);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Navbar — warm soil brown so a green logo stands out clearly */
+.navbar.nt-navbar {
+  background: linear-gradient(135deg, #2a2319 0%, #43352c 55%, #4f3f34 100%) !important;
+  box-shadow: 0 4px 22px rgba(42, 35, 25, 0.35);
+}
+
+.navbar.nt-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 600;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.35rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar.nt-navbar .nav-link:hover,
+.navbar.nt-navbar .nav-link.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--nt-white) !important;
+}
+
+.navbar.nt-navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar.nt-navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.brand-logo {
+  height: 58px;
+  width: auto;
+  max-height: 64px;
+  margin-right: 0.65rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 575.98px) {
+  .brand-logo {
+    height: 50px;
+    max-height: 54px;
+  }
+}
+
+/* Marquee offers */
+.offer-marquee-wrap {
+  background: linear-gradient(90deg, var(--nt-green-dark), var(--nt-green-light));
+  color: var(--nt-white);
+  overflow: hidden;
+  padding: 0.45rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Two identical strips — translate -50% for seamless loop */
+.offer-marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.offer-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.offer-marquee-content {
+  padding-right: 3rem;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-marquee-track {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background: var(--nt-green-dark) url("../images/shop.jpeg") center / cover no-repeat;
+  color: var(--nt-white);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 67, 50, 0.88) 0%,
+    rgba(45, 106, 79, 0.75) 50%,
+    rgba(64, 145, 108, 0.65) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  font-size: clamp(1.85rem, 5vw, 3rem);
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  max-width: 36rem;
+  opacity: 0.95;
+}
+
+.btn-nt-primary {
+  background: var(--nt-gold);
+  border: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-nt-primary:hover {
+  background: #e8b896;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 163, 115, 0.45);
+}
+
+.btn-nt-outline {
+  border: 2px solid var(--nt-white);
+  color: var(--nt-white);
+  font-weight: 700;
+  padding: 0.55rem 1.4rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-nt-outline:hover {
+  background: var(--nt-white);
+  color: var(--nt-green-dark);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  border: none;
+  color: var(--nt-white);
+  font-weight: 700;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe57;
+  color: var(--nt-white);
+}
+
+/* Sections */
+.section-nt {
+  padding: 3.5rem 0;
+}
+
+.section-title {
+  color: var(--nt-green-dark);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--nt-earth);
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.card-nt {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px var(--nt-shadow);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  height: 100%;
+}
+
+.card-nt:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(27, 67, 50, 0.18);
+}
+
+/* Full product visible — no harsh crop (letterbox if aspect differs) */
+.card-nt .card-img-top {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(180deg, #eef4ef 0%, #dfe8e1 100%);
+}
+
+.card-nt .card-title {
+  color: var(--nt-green-dark);
+  font-size: 1.1rem;
+}
+
+/* Gallery */
+.gallery-item {
+  border-radius: 0.65rem;
+  overflow: hidden;
+  box-shadow: 0 6px 24px var(--nt-shadow);
+  aspect-ratio: 4 / 3;
+  background: #e8ede9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.35s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* Video — works for landscape (16:9) and portrait (vertical) clips */
+.video-wrap {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 12px 40px var(--nt-shadow);
+  background: #1a1f1c;
+}
+
+.video-wrap video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.video-wrap--responsive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  max-height: min(92vh, 960px);
+}
+
+.video-wrap--responsive video {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: var(--nt-white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--nt-green-light);
+  box-shadow: 0 6px 24px var(--nt-shadow);
+  height: 100%;
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  color: var(--nt-earth);
+}
+
+.testimonial-card .name {
+  font-weight: 700;
+  color: var(--nt-green-dark);
+  margin-top: 1rem;
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(180deg, var(--nt-green-dark) 0%, #0d2818 100%);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 3rem 0 1.5rem;
+  margin-top: 0;
+}
+
+.site-footer a {
+  color: var(--nt-green-soft);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--nt-white);
+  text-decoration: underline;
+}
+
+/* Floating WhatsApp */
+.float-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 88px;
+  z-index: 1050;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: var(--nt-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+  transition: transform 0.2s;
+}
+
+.float-whatsapp:hover {
+  color: var(--nt-white);
+  transform: scale(1.08);
+}
+
+/* Mobile call bar */
+.mobile-call-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1040;
+  background: var(--nt-green-dark);
+  padding: 0.65rem 1rem;
+  box-shadow: 0 -4px 20px var(--nt-shadow);
+  gap: 0.5rem;
+}
+
+.mobile-call-bar .btn {
+  flex: 1;
+  font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+  .mobile-call-bar {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
+
+  .float-whatsapp {
+    bottom: 100px;
+  }
+}
+
+/* About owner placeholder */
+.owner-photo {
+  max-width: 280px;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 40px var(--nt-shadow);
+  border: 4px solid var(--nt-green-soft);
+}
+
+/* Home owner-story wide photo — show full frame without cropping */
+.owner-story-img {
+  width: 100%;
+  max-height: min(480px, 70vw);
+  object-fit: contain;
+  object-position: center;
+  background: #e8ede9;
+}
+
+.owner-photo.owner-story-img {
+  max-width: min(520px, 100%);
+}
+
+/* Contact form */
+.was-invalid .form-control:invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: none;
+}
+
+.was-invalid .invalid-feedback {
+  display: block;
+}
+
+.map-embed {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 30px var(--nt-shadow);
+  min-height: 320px;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+}
+
+/* Utility */
+.bg-nt-soft {
+  background: linear-gradient(180deg, #e8f5e9 0%, var(--nt-cream) 100%);
+}
+
+.text-nt-green {
+  color: var(--nt-green-dark) !important;
+}
+
+/* Page header (inner pages) */
+.page-header {
+  background: linear-gradient(135deg, var(--nt-green-dark), var(--nt-green));
+  color: var(--nt-white);
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 0;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
